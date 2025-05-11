@@ -1,0 +1,583 @@
+/* General Styles */
+body, h1, p {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Applies default centering */
+}
+
+body {
+    padding-top: 80px; /* Prevents navbar from covering content */
+}
+
+/* Navigation Bar */
+.navbar {
+    background: #007BFF;
+    padding: 15px 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 60px;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background-color: #0056b3;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between; /* Push left and right sections apart */
+    align-items: flex-start; /* Align content to the top */
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    gap: 20px; /* Adds spacing between sections */
+}
+
+/* Left Section */
+.info-section {
+    width: 40%; /* Takes 40% of the container */
+}
+
+/* Right Section (Upload + Results) */
+.upload-results-container {
+    width: 55%; /* Takes 55% of the container */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Adds space between upload and result sections */
+}
+
+ /* Fix progress bar spacing */
+.progress-container {
+    margin-top: 20px; /* Adjust as needed */
+}
+
+/* Reduce gap between Analyze button and Diagnosis Result */
+#analyze-btn {
+    margin-bottom: 10px; /* Reduce the space */
+}
+
+#diagnosis-result {
+    font-size: 18px;
+    margin: 10px 0; /* Ensure proper spacing */
+    background: none; /* Remove extra box */
+    border: none;
+    padding: 0;
+}
+
+/* Upload Box */
+.upload-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px; /* Add spacing */
+}
+
+.drop-area {
+    width: 300px;
+    height: 300px;
+    border: 2px dashed #3498db;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 10px auto; /* Center horizontally */
+}
+
+.error-message {
+    color: #ff4d4f;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    min-height: 18px; /* ensures space is always reserved */
+}
+
+#preview {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.result-container {
+    text-align: center;
+    margin-top: 15px; /* Reduce space */
+    background: none; /* Ensure no extra box */
+    border: none;
+    padding: 0; /* Reset unwanted padding */
+}
+
+/* Results Section */
+.results-section {
+    padding: 10px;
+    background: transparent; /* Remove background */
+    border: none; /* Remove extra border */
+    margin-top: 10px; /* Adjust spacing */
+    max-width: fit-content; /* Avoid stretching */
+}
+
+/* Progress Bar */
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 15px;
+}
+
+.step {
+    width: 40px;
+    height: 40px;
+    background: lightgray;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.step span {
+    position: absolute;
+    top: 50px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.line {
+    width: 50px;
+    height: 4px;
+    background: lightgray;
+}
+
+.step.active, .step.completed {
+    background: green;
+    color: black;
+}
+
+/* Improve left info section spacing */
+.info-section {
+    max-width: 450px;  /* Reduce width slightly for better balance */
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;  /* Adds space between elements */
+}
+
+/* Increase spacing between headings & text */
+.info-section h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 12px;
+    margin-top: 5px;
+}
+
+.info-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    margin-top: -20px;
+}
+
+/* Style ordered list with better spacing */
+.info-section ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.info-section ol li {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-left: 5px;
+    margin-bottom: 8px;
+}
+
+.guidelines-title {
+    text-align: center;
+}
+
+.guidelines {
+    list-style-type: none; /* Removes default bullets */
+    padding-left: 0; /* Aligns text properly */
+    margin-top: -20px;
+    margin-bottom: 50px;
+}
+
+.guidelines li {
+    text-align: center;
+    margin-bottom: 5px; /* Adjusts spacing */
+    font-size: 16px; /* Adjust size if needed */
+}
+
+/* Make disclaimer more readable */
+.info-section p strong {
+    font-size: 14px;
+    color: #777;
+    display: block;
+    margin-top: 10px;
+}
+
+.disclaimer {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff3cd; /* Light yellow background */
+    padding: 8px;
+    border-radius: 5px;
+    border-left: 4px solid #ffcc00; /* Yellow left border */
+    width: 80%; /* Adjust width */
+    margin: 10px auto; /* Center it */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    max-width: 100%; /* Ensures no content exceeds the screen width */
+}
+
+.content {
+    flex: 1; /* This makes the main content take up available space */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #f8f8f8;
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #f1f1f1; /* Gray background */
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Ensure paragraph inside footer doesn’t have an unwanted background */
+footer p {
+    background: transparent; /* Removes any white box */
+    margin: 0; /* Fixes unwanted spacing */
+    padding: 0;
+}
+
+/* Hide mobile layout on desktop */
+.mobile-layout {
+    display: none;
+}
+
+/* ========= MOBILE VIEW (for devices under 768px) ========== */
+@media (max-width: 768px) {
+.content-container {
+        display: none;
+    }
+
+/* Show mobile layout */
+    .mobile-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        gap: 20px;
+    }
+
+/* Mobile Intro Text */
+.mobile-layout .intro-block {
+    width: 80%;
+    text-align: center;
+    margin-top: -15px;
+}
+
+.mobile-layout .intro-block h2 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.mobile-layout .intro-block p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+    /* Make navbar layout horizontal */
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 15px;
+        background-color: #007bff;
+    }
+
+    .navbar .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+	padding: 65px;
+        width: 100%;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .logo img {
+        height: 28px;
+        width: auto;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        list-style: none;
+        margin: 0;
+        padding-right: 50px;
+    }
+
+    .nav-links li a {
+        color: white;
+        font-size: 14px;
+        padding: 6px;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    /* Mobile Guidelines block */
+    .mobile-layout .guidelines-block {
+        width: 90%;
+        text-align: center;
+    }
+
+.guidelines-block {
+        margin-top: -30px;
+    }
+
+    .toggle-guidelines {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    user-select: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.toggle-guidelines:hover {
+    color: #0056b3;
+}
+
+.guidelines {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.guidelines li {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+    /* Mobile Progress Bar */
+    .mobile-layout .progress-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 5px 0px;
+        margin-top: -5px;
+    }
+
+    .mobile-layout .step {
+        width: 36px;
+        height: 36px;
+        background: lightgray;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 14px;
+        position: relative;
+    }
+
+    .mobile-layout .step.active,
+    .mobile-layout .step.completed {
+        background: green;
+        color: white;
+    }
+
+    .mobile-layout .step span {
+        position: absolute;
+        top: 45px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .step span {
+    	color: black;
+    }
+
+    .mobile-layout .line {
+        width: 40px;
+        height: 4px;
+        background: lightgray;
+    }
+
+    /* Upload Section */
+    .mobile-layout .upload-section {
+        width: 100%;
+        text-align: center;
+    }
+
+.upload-section h3 {
+	font-size: 18px;
+	padding-top: 10px;
+	margin-bottom: 10px;
+}
+
+    .mobile-layout .drop-area {
+        width: 80%;
+        height: 250px;
+        border: 2px dashed #3498db;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mobile-layout #previewMobile {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Results */
+    .mobile-layout .results-section {
+        padding: 10px;
+        text-align: center;
+	margin-top: -20px;
+    }
+
+    .mobile-layout .results-section h3 {
+        margin-bottom: 10px;
+	font-size: 18px;
+    }
+
+    .mobile-layout #diagnosis-result-mobile p {
+        font-size: 15px;
+        margin: 5px 0;
+    }
+
+    /* Disclaimer */
+    .mobile-layout .disclaimer {
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        background-color: #fff3cd;
+        padding: 10px;
+        border-radius: 5px;
+        border-left: 4px solid #ffcc00;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /* Footer */
+    footer {
+        position: relative;
+	font-size: 10px;
+	text-align: center;
+	padding-left: 5px;
+        bottom: 0;
+        width: 100%;
+    }
+}

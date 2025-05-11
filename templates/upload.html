@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skin Diagnosis</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">AI Skin Diagnosis</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-container">
+
+        <!-- Left: Info Section -->
+        <section class="info-section">
+            <h2>Upload an Image for Analysis</h2>
+            <p>Use our AI-powered tool to analyze your skin condition. Upload a clear image of the affected area.</p>
+
+            <h3 class="guidelines-title">Guidelines for Best Results:</h3>
+            <ul class="guidelines">
+                <li>✔ Ensure good lighting and focus.</li>
+                <li>✔ Only one affected area per image.</li>
+                <li>✔ Use JPEG, JPG or PNG format.</li>
+            </ul>
+
+            <p class="disclaimer">⚠️ <strong>Disclaimer:</strong> This tool provides an AI-based preliminary diagnosis and does not replace professional medical advice.</p>
+        </section>
+
+        <!-- Right: Upload & Results (Side by Side) -->
+        <div class="upload-results-container">
+
+            <!-- Step Progress Bar -->
+            <div class="progress-container" style="margin-top: 20px; margin-bottom: 10px;">
+                <div class="step active" id="step1">1 <span>Upload Image</span></div>
+                <div class="line"></div>
+                <div class="step" id="step2">2 <span>AI Analysis</span></div>
+                <div class="line"></div>
+                <div class="step" id="step3">3 <span>Get Results</span></div>
+            </div>
+
+            <!-- Upload & Results Flexbox -->
+            <div class="upload-result-wrapper">
+                <!-- Upload Section -->
+                <section class="upload-section">
+                    <h3>Upload Image</h3>
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <label for="imageInput" class="drop-area">
+                            <span>Drag & Drop Image Here</span>
+                            <img id="preview" src="#" alt="Image Preview" style="display:none; max-width: 100%; max-height: 100%;">
+                            <input type="file" id="imageInput" name="image" accept="image/*" hidden>
+                        </label>
+			<div id="error-message" class="error-message"></div>
+                        <button type="submit" id="analyzeBtn" style="margin-bottom: 10px;">Analyze</button>
+                    </form>
+                </section>
+
+                <!-- Results Section -->
+                <section class="results-section" id="results-section" style="display: none;">
+                    <h3>Diagnosis Result</h3>
+                    <div id="diagnosis-result" style="margin-bottom: 10px;">
+                        <p><strong>Detected Condition:</strong> <span id="condition">-</span></p>
+                        <p><strong>Description:</strong> <span id="description">-</span></p>
+                    </div>
+                </section>
+            </div>
+
+        </div> <!-- End of upload-results-container -->
+    </div> <!-- End of content-container -->
+
+<!-- MOBILE VIEW ONLY -->
+<div class="mobile-layout">
+
+<section class="intro-block">
+        <h2>Upload an Image for Analysis</h2>
+        <p>Use our AI-powered tool to analyze your skin condition. Upload a clear image of the affected area.</p>
+    </section>
+
+    <section class="guidelines-block">
+    <h3 class="toggle-guidelines" id="toggleGuidelines">Click here for Quick Guidelines ▼</h3>
+    <ul class="guidelines" id="guidelinesList">
+        <li>✔ Good lighting & focus</li>
+        <li>✔ One affected area</li>
+        <li>✔ JPEG / PNG format</li>
+    </ul>
+</section>
+
+
+    <div class="progress-container" id="progress-mobile">
+        <div class="step active" id="step1-mobile">1 <span>Upload</span></div>
+        <div class="line"></div>
+        <div class="step" id="step2-mobile">2 <span>Analyze</span></div>
+        <div class="line"></div>
+        <div class="step" id="step3-mobile">3 <span>Result</span></div>
+    </div>
+
+    <section class="upload-section">
+        <h3>Upload Image</h3>
+        <form id="uploadFormMobile" enctype="multipart/form-data">
+            <label for="imageInputMobile" class="drop-area">
+                <span>Drag & Drop Image Here</span>
+                <img id="previewMobile" src="#" alt="Image Preview" style="display:none;">
+                <input type="file" id="imageInputMobile" name="image" accept="image/*" hidden>
+            </label>
+	    <div id="error-message-mobile" class="error-message"></div>
+            <button type="submit" id="analyzeBtnMobile">Analyze</button>
+        </form>
+    </section>
+
+    <section class="results-section" id="results-section-mobile" style="display: none;">
+        <h3>Diagnosis Result</h3>
+        <div id="diagnosis-result-mobile">
+            <p><strong>Detected Condition:</strong> <span id="conditionMobile">-</span></p>
+            <p><strong>Description:</strong> <span id="descriptionMobile">-</span></p>
+        </div>
+    </section>
+
+    <p class="disclaimer">⚠️ <strong>Disclaimer:</strong> This tool provides an AI-based preliminary diagnosis and does not replace professional medical advice.</p>
+</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</div>
+ 
+   <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AI Skin Diagnosis. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
