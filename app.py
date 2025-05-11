@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-import tensorflow.lite as tflite
+import tensorflow as tf
 import numpy as np
 from PIL import Image
 import io
@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 
 # Load the TFLite model
-interpreter = tflite.Interpreter(model_path="best_model.tflite")
+interpreter = tf.lite.Interpreter(model_path="best_model.tflite")
 interpreter.allocate_tensors()
 
 # Get input & output details
@@ -79,4 +79,5 @@ def submit_feedback():
     return jsonify({"success": True, "message": "Feedback submitted successfully"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
