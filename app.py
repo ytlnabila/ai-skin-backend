@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 import tensorflow as tf
 import numpy as np
 from PIL import Image
@@ -6,6 +7,7 @@ import io
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 # Load the TFLite model
 interpreter = tf.lite.Interpreter(model_path="best_model.tflite")
